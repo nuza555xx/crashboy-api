@@ -10,31 +10,30 @@ steps:
       [
         'build',
         '-t',
-        '${_REPO_REGION}/$PROJECT_ID/${_REPO_NAME}/${_SERVICE_NAME}:latest',
+        'asia-southeast1-docker.pkg.dev/crashboy-395715/crashboy/authentication:latest',
         '-f',
-        './Dockerfile.${_SERVICE_NAME}',
+        './Dockerfile.authentication',
         '.',
       ]
   - name: 'gcr.io/cloud-builders/docker'
     args:
       [
         'push',
-        '${_REPO_REGION}/$PROJECT_ID/${_REPO_NAME}/${_SERVICE_NAME}:latest',
+        'asia-southeast1-docker.pkg.dev/crashboy-395715/crashboy/authentication:latest',
       ]
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: gcloud
-    args:
-      [
-        'run',
-        'deploy',
-        '${_SERVICE_NAME}',
-        '--image',
-        '${_REPO_REGION}/$PROJECT_ID/${_REPO_NAME}/${_SERVICE_NAME}:latest',
-        '--platform=managed',
-        '--region=asia-southeast1',
-        '--allow-unauthenticated',
-      ]
-
-logsBucket: 'gs://buildlogging'
-options:
-  logging: GCS_ONLY
+  # - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  #   entrypoint: gcloud
+  #   args:
+  #     [
+  #       'run',
+  #       'deploy',
+  #       'authentication',
+  #       '--image',
+  #       'asia-southeast1-docker.pkg.dev/crashboy-395715/crashboy/authentication:latest',
+  #       '--platform=managed',
+  #       '--region=asia-southeast1',
+  #       '--allow-unauthenticated',
+  #     ]
+# logsBucket: 'gs://buildlogging'
+# options:
+#   logging: GCS_ONLY
