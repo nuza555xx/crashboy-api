@@ -7,11 +7,11 @@ export const redisStoreConfig = registerAs(
   ConfigKey.STORE,
   (): IRedisConfig => ({
     store: redisStore,
-    host: process.env.REDIS_STORE_HOST,
-    password: process.env.REDIS_STORE_PASSWORD,
-    port: Number(process.env.REDIS_STORE_PORT),
-    db: process.env.REDIS_STORE_DB || '0',
-    ttl: Number(process.env.REDIS_STORE_TTL) || 1000,
+    host: process.env.REDIS_HOST,
+    password: process.env.REDIS_PASSWORD,
+    port: Number(process.env.REDIS_PORT),
+    db: process.env.REDIS_DB || '0',
+    ttl: Number(process.env.REDIS_TTL) || 1000,
   })
 );
 
@@ -19,10 +19,10 @@ export const redisCacheConfig = registerAs(
   ConfigKey.CACHE,
   (): IRedisConfig => ({
     store: redisStore,
-    host: process.env.REDIS_CACHE_HOST,
-    port: Number(process.env.REDIS_CACHE_PORT),
-    password: process.env.REDIS_CACHE_PASSWORD,
-    db: process.env.REDIS_STORE_DB || '0',
-    ttl: Number(process.env.REDIS_CACHE_TTL) || 1000,
+    host: process.env.REDIS_HOST,
+    port: Number(process.env.REDIS_PORT),
+    password: process.env.REDIS_PASSWORD,
+    db: process.env.REDIS_DB || '0',
+    ttl: Number(process.env.REDIS_TTL) || 1000,
   })
 );
