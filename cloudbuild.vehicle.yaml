@@ -4,7 +4,7 @@ steps:
     args: ['install']
   - name: 'node:18-alpine'
     entrypoint: 'npm'
-    args: ['run', 'build:all']
+    args: ['run', 'build', '--', 'vehicle']
   - name: 'gcr.io/cloud-builders/docker'
     args:
       [
