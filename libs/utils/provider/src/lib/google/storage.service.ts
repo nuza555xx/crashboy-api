@@ -19,6 +19,7 @@ export class StorageService implements OnModuleInit {
     this.config = this.configService.get<StorageConfig>(ConfigKey.STORAGE);
 
     this.storage = new Storage({
+      apiEndpoint: this.config.apiEndpoint,
       credentials: {
         client_email: this.config.clientEmail,
         client_id: this.config.clientId,

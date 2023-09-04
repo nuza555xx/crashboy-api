@@ -25,6 +25,7 @@ export interface ThrottlerConfig {
 }
 
 export interface StorageConfig {
+  apiEndpoint: string;
   projectId: string;
   clientEmail: string;
   clientId: string;

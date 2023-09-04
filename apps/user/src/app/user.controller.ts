@@ -45,6 +45,12 @@ export class UserController {
     return this.userService.getProfile(accountId);
   }
 
+  @Get('me')
+  @MadifyAuthorize(RedisCacheKey.USER)
+  getOwnerProfile(@Auth() auth: Authorizer): Promise<ResponseProfile> {
+    return this.userService.getProfile(auth.account.id);
+  }
+
   @Put(':accountId')
   @MadifyAuthorizeAndClearCached(RedisCacheKey.USER)
   updateProfile(

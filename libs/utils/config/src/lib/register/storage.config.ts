@@ -5,6 +5,7 @@ import { StorageConfig } from '../config.interface';
 export const storageConfig = registerAs(
   ConfigKey.STORAGE,
   (): StorageConfig => ({
+    apiEndpoint: process.env.API_ENDPOINT,
     projectId: process.env.PROJECT_ID,
     clientEmail: process.env.CLIENT_EMAIL,
     clientId: process.env.CLIENT_ID,
